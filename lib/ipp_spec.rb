@@ -12,6 +12,4 @@ describe "SMS" do
   expect(okLBS).to eq(201)
   end
 
-
-
 end  

@@ -1,9 +1,5 @@
 require 'HTTParty'
 require 'app_init.rb'
-#init
-
-$uris = "https://devapi.globelabs.com.ph/smsmessaging/v1/outbound/3822/requests?app_id=#{App.app_id}&app_secret=#{App.app_secret}"
-$uric = "https://devapi.globelabs.com.ph/payment/v1/transactions/amount?app_id#{App.app_id}&app_secret=#{App.app.secret}"
 
 def okSms
   message = 'hello world'
@@ -12,13 +8,15 @@ def okSms
 end
 
 def okCharging
-  refCode =  
-  amount =
-  response = 
+  content = open.('#refEndpoint').read
+  json = JSON.parse(content)
+  refcode = json['result'].first['reference_code'].to_i+1 
+  amount = '0.00'
+  response = HTTParty.post($uric, :body => {:endUserId => App.address, :amount => amount, :referenceCode => increment.to_s, :transactionOperationStatus => 'Charged', :var => App.code }) 
   return response.code  
 end
 
 def okLBS
-  response = 
+  response = HTTParty.get()
   return response.code
 end
