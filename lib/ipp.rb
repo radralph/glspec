@@ -20,3 +20,8 @@ def okLBS
   response = HTTParty.get()
   return response.code
 end
+
+def okDn
+  response = HTTParty.get()
+  return response.code
+end
