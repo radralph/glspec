@@ -8,4 +8,10 @@ describe "SMS" do
   expect(okCharging).to eq(201)
   end
 
+  it 'Successful LBS' do
+  expect(okLBS).to eq(201)
+  end
+
+
+
 end  

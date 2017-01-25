@@ -13,5 +13,12 @@ end
 
 def okCharging
   refCode =  
-  amount
+  amount =
+  response = 
+  return response.code  
+end
+
+def okLBS
+  response = 
+  return response.code
 end
