@@ -7,6 +7,8 @@ def okSms
   return response.code
 end
 
+#Successful Scenarios
+
 def okCharging
   content = open.('#refEndpoint').read
   json = JSON.parse(content)
@@ -17,11 +19,25 @@ def okCharging
 end
 
 def okLBS
-  response = HTTParty.get()
+  response = HTTParty.get(App.uril)
   return response.code
 end
 
 def okDn
   response = HTTParty.get()
   return response.code
+end
+
+#Failing Scenarios
+
+def smsFail1 
+  response = HTTParty.post($uris, :body => {:message => App.message, :var => App.code})
+end
+
+def smsFail2
+  response = HTTParty.post($uribp, :body => {:address => App.address })
+end
+
+def smsFail3
+  response = HTTParty.post($uri, :body => {:address => 'asd', :message => message})
 end
