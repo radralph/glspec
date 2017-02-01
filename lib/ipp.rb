@@ -30,14 +30,37 @@ end
 
 #Failing Scenarios
 
+#n-Missing address
 def smsFail1 
-  response = HTTParty.post($uris, :body => {:message => App.message, :var => App.code})
+  response = HTTParty.post($uris, :body => {message: App.message})
 end
 
+#n-Missing message
 def smsFail2
-  response = HTTParty.post($uribp, :body => {:address => App.address })
+  response = HTTParty.post($uribp, :body => {address: App.address })
 end
 
+#n-Invalid address
 def smsFail3
-  response = HTTParty.post($uri, :body => {:address => 'asd', :message => message})
+  response = HTTParty.post($uri, :body => {address: 'asd', message:  message})
+end
+
+#n-Invalid shortcode
+def smsFail4
+  response = HTTParty.post($urif, :body => {adress: App.address, message: App.message})
+end
+
+#n-Invalid Token 
+def smsFail5
+  response = HTTParty.post($urif, :body => {address: App.address, message: App.message})
+end
+
+#n-Invalid parameter
+def smsFail6
+  response = HTTParty.post($urif, :body => {address: App.address, message: App.message, invalid: 'test'})
+end
+
+#b-missing passphrase
+def smsFail7
+  response = HTTParty.post($urif)
 end
