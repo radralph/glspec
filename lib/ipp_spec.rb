@@ -9,6 +9,24 @@ describe "SMS API" do
     end
   end
 
+  context "request without address parameter" do
+    it "returns error" do
+      expect(failSms1).to eq(400)
+    end
+  end
+
+  context "request without message parameter" do
+    it "returns error" do
+      expect(failSms2).to eq(400)
+    end
+  end
+
+  context "request without access_token" do
+    it "returns error" do
+      expect(failSms3).to eq(400)
+    end
+  end
+
 end
 #-
 describe "Charging API" do
@@ -48,6 +66,7 @@ describe "DN API" do
     it "return successful" do
       expect(okDN).to eq(201)
     end
+  end
 
 end
 #-
