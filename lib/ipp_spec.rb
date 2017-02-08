@@ -1,29 +1,54 @@
 require 'ipp.rb'
 
-describe "SMS" do
- 
-  it 'Successful SMS' do
-    expect(okSms).to eq(201) 
+#-
+describe "SMS API" do
+
+  context "request with complete parameters" do 
+    it "returns successful" do
+      expect(okSms).to eq(201) 
+    end
   end
 
-  it 'Successful Charging' do
-    expect(okCharging).to eq(201)
+end
+#-
+describe "Charging API" do
+  
+  context "request with complete parametrs" do
+    it "returns successful" do
+      expect(okCharging).to eq(201)
+    end
   end
 
-  it 'Successful LBS' do
-    expect(okLBS).to eq(201)
+  context "request without address parameter" do
+    it "returns error" do
+      expect(smsFail1).to eq(401)
+    end
   end
 
-  it 'Successful DN' do
-    expect(okDN).to eq(201)
+  context "request without message parameter" do  
+    it "returns error" do
+      expect(smsFail2.).to eq(401)
+    end
   end
 
-  it 'Missing address parameter' do
-    expect(smsFail1).to eq(401)
-  end
+end
+#-
+describe "LBS API" do
 
-  it 'Missing message parameter' do
-    expect(smsFail2).to eq(401)
-  end
+  context "request with complete paramters" do
+    it "returns successful" do
+      expect(okLBS).to eq(201)
+    end
 
-end  
+end
+#-
+describe "DN API" do
+
+  context "request with complete paramters" do
+    it "return successful" do
+      expect(okDN).to eq(201)
+    end
+
+end
+#-
+
