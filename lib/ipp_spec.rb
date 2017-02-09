@@ -11,19 +11,19 @@ describe "SMS API" do
 
   context "request without address parameter" do
     it "returns error" do
-      expect(failSms1).to eq(400)
+      expect(smsFail1).to eq(400)
     end
   end
 
   context "request without message parameter" do
     it "returns error" do
-      expect(failSms2).to eq(400)
+      expect(smsFail2).to eq(400)
     end
   end
 
-  context "request without access_token" do
+  context "request without " do
     it "returns error" do
-      expect(failSms3).to eq(400)
+      expect(smsFail3).to eq(400)
     end
   end
 

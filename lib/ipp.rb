@@ -1,20 +1,18 @@
-require 'HTTParty'
 require 'app_init.rb'
 
+#-Successful Scenarios
 def okSms
-  message = 'hello world'
+  message = "Hello World"
   response = HTTParty.post($uris, :body => {:message => message, :address => App.address, :var =>  App.code})
   return response.code
 end
 
-#Successful Scenarios
-
 def okCharging
-  content = open.('#refEndpoint').read
+  content = open.("#refEndpoint").read
   json = JSON.parse(content)
-  refcode = json['result'].first['reference_code'].to_i+1 
-  amount = '0.00'
-  response = HTTParty.post($uric, :body => {:endUserId => App.address, :amount => amount, :referenceCode => increment.to_s, :transactionOperationStatus => 'Charged', :var => App.code }) 
+  refcode = json["result"].first['reference_code'].to_i+1 
+  amount = "0.00"
+  response = HTTParty.post($uric, :body => {:endUserId => App.address, :amount => amount, :referenceCode => increment.to_s, :transactionOperationStatus => "Charged", :var => App.code }) 
   return response.code  
 end
 
@@ -42,7 +40,7 @@ end
 
 #n-Invalid address
 def smsFail3
-  response = HTTParty.post($uri, :body => {address: 'asd', message:  message})
+  response = HTTParty.post($uri, :body => {address: "asd", message:  message})
 end
 
 #n-Invalid shortcode
@@ -57,7 +55,7 @@ end
 
 #n-Invalid parameter
 def smsFail6
-  response = HTTParty.post($urif, :body => {address: App.address, message: App.message, invalid: 'test'})
+  response = HTTParty.post($urif, :body => {address: App.address, message: App.message, invalid: "test"})
 end
 
 #b-missing passphrase
