@@ -27,6 +27,7 @@ def okDn
 end
 
 #Failing Scenarios
+#SMS
 
 #n-Missing address
 def smsFail1 
@@ -58,7 +59,18 @@ def smsFail6
   response = HTTParty.post($urif, :body => {address: App.address, message: App.message, invalid: "test"})
 end
 
-#b-missing passphrase
+#b-missing app.code 
 def smsFail7
-  response = HTTParty.post($urif)
+  response = HTTParty.post($urif, :body => {address: App.address, message: App.message, code: 'zxc'})
 end
+
+#b-missing app_id
+def smsFail8
+  response = HTTParty.post($urif1, :body => {address: App.address, message: App.message, code: App.code})
+end
+
+#b-missing app_secret
+def smsFail9
+  response = HTTParty.post($urif2, :body => {address: App.address, message: App.message, code: App.code})
+end
+
