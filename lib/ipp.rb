@@ -1,9 +1,21 @@
 require 'app_init.rb'
 
 #-Successful Scenarios
-def okSms
+def okSms1
   message = "Hello World"
   response = HTTParty.post($uris, :body => {:message => message, :address => App.address, :var =>  App.code})
+  return response.code
+end
+
+def okSms2
+  message = "A" * 320
+  response = HTTParty.post($uris, :body => {:message => message, :address => App.address, :var => App.code})
+  return response.code
+end
+
+def okSms2
+  message = "B" * 480
+  response = HTTpart.post($uris, :body => {:message => message, :address => App.address, :var => App.code})
   return response.code
 end
 
