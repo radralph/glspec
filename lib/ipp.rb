@@ -8,16 +8,19 @@ def okSms1
 end
 
 def okSms2
-  message = "A" * 320
+  message = ("A" * 160) + ("B" * 160) 
   response = HTTParty.post($uris, :body => {:message => message, :address => App.address, :var => App.code})
   return response.code
 end
 
-def okSms2
-  message = "B" * 480
+def okSms3
+  message = ("A" * 160) + ("B" * 160) + ("C" * 160)   
   response = HTTpart.post($uris, :body => {:message => message, :address => App.address, :var => App.code})
   return response.code
 end
+
+def okSms4
+  message = 
 
 def okCharging
   content = open.("#refEndpoint").read
