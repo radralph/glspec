@@ -15,12 +15,15 @@ end
 
 def okSms3
   message = ("A" * 160) + ("B" * 160) + ("C" * 160)   
-  response = HTTpart.post($uris, :body => {:message => message, :address => App.address, :var => App.code})
+  response = HTTparty.post($uris, :body => {:message => message, :address => App.address, :var => App.code})
   return response.code
 end
 
 def okSms4
-  message = 
+  message = "!@#$%^&*()_+{}|:\'\>?<[]😄" 
+  response = HTTParty.post($uris, :body => {:message => message, :addres => App.address, :var => App.code})
+  return response.code 
+end
 
 def okCharging
   content = open.("#refEndpoint").read
